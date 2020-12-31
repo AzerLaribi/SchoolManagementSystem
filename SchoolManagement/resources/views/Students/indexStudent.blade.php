@@ -98,21 +98,21 @@
 <hr>
 <div class="card col-md-12 col-lg-12">
   <div class="card-body">
-    <h3 class="card-title" style="text-align:center; color : Skyblue"> <b>Student</b></h3><hr>
+    <h3 class="card-title" style="text-align:center; color : Skyblue"> <b>Student</b><a class="btn btn-outline-info float-right" href="/fullcalendareventmaster" role="button" target="_blank"><i class="fas fa-calendar-alt"></i> Evenement</a></h3><hr>
     <div class="row">
       <div class="card col-md-4 col-lg-4 bg-info" >
         <div class="card-body">
           <h5 class="card-title" style="text-align:center; color : white"> <b>Cours</b> </h5> <hr>
-          <a  class="nav-link collapsed" href="./CourStudents" style="display : flex; justify-content:center; color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
-            <i class='fas fa-chalkboard-teacher' style='font-size:50px'></i>
+          <a  class="nav-link collapsed" href="./CourStudents" style="display : flex; color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
+            <i class='fas fa-chalkboard-teacher' style='font-size:50px'></i><h4> <p style="text-align:right; margin-left:100px;"><b>{{$cours->count()}}<br>Cours</b></p><br> </h4>
           </a>
         </div>
       </div>
         <div class="card col-md-4 col-lg-4 text-white bg-danger" >
           <div class="card-body">
             <h5 class="card-title" style="text-align:center;"> <b>Exercice</b> </h5> <hr>
-            <a  class="nav-link collapsed" href="./ExerciceStudents" style="display : flex; justify-content:center; color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
-              <i class='fas fa-book-medical' style='font-size:50px'></i>
+            <a  class="nav-link collapsed" href="./ExerciceStudents" style="display : flex; color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
+              <i class='fas fa-book-medical' style='font-size:50px'></i><h4> <p style="text-align:right; margin-left:100px;"><b>{{$exercices->count()}}<br>Exercices</b></p><br> </h4>
 
             </a>
           </div>
@@ -120,8 +120,8 @@
       <div class="card col-md-4 col-lg-4 bg-success text-white">
         <div class="card-body">
           <h5 class="card-title" style="text-align:center;"> <b>Note</b> </h5> <hr>
-          <a  class="nav-link collapsed" href="./NoteStudent" style="display : flex; justify-content:center; color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
-            <i class="fas fa-clipboard-check" style='font-size:50px'></i>
+          <a  class="nav-link collapsed" href="./NoteStudent" style="display : flex;  color : white"  aria-expanded="true" aria-controls="collapseUtilities" target="_blank">
+            <i class="fas fa-clipboard-check float-left" style='font-size:50px'> </i><h4> <p style="text-align:right; margin-left:150px;"><b>{{$notes->count()}}<br>Notes</b></p></h4>
           </a>
         </div>
       </div>

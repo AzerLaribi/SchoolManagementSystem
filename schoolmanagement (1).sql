@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 25 déc. 2020 à 16:47
+-- Généré le : jeu. 31 déc. 2020 à 15:04
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.4.8
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `schoolmanagement`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -63,7 +78,40 @@ CREATE TABLE `cours` (
 --
 
 INSERT INTO `cours` (`id`, `name`, `file_name`, `matiere_id`, `Teacher_id`, `Classe_id`, `created_at`, `updated_at`) VALUES
-(1, 'analyse numérique', 'analyse numérique5fe33b8c07e21.pdf', 1, 1, 1, '2020-12-23 11:43:56', '2020-12-23 11:43:56');
+(1, 'analyse numérique', 'analyse numérique5fe7909b6df2b.pdf', 1, 1, 1, '2020-12-26 18:35:56', '2020-12-26 18:35:56'),
+(2, 'Algebre lineaire', 'Algebre lineaire5fe79a864982f.pdf', 2, 1, 1, '2020-12-26 19:18:14', '2020-12-26 19:18:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`) VALUES
+(3, 'Furom', '2020-12-16', '2020-12-17', NULL, '2020-12-27 10:32:30'),
+(5, 'bonjour', '2020-12-17', '2020-12-18', NULL, NULL),
+(6, 'forum', '2020-12-21', '2020-12-25', NULL, NULL),
+(7, 'ttt', '2020-12-10', '2020-12-11', NULL, '2020-12-28 09:24:43'),
+(8, 'rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', '2020-12-27', '2020-12-27', NULL, NULL),
+(9, 'nnnnnn', '2020-12-01', '2020-12-02', NULL, '2020-12-27 14:51:41'),
+(10, 'bbbbbbbbb', '2020-12-07', '2020-12-13', NULL, NULL),
+(11, 'vvvvv', '2020-12-03', '2020-12-04', NULL, '2020-12-27 14:06:32'),
+(12, 'vvvvvvvvvvvvvvvv', '2021-01-04', '2021-01-04', NULL, NULL),
+(13, 'for', '2020-12-02', '2020-12-03', NULL, NULL),
+(15, 'vffvvfvf', '2020-12-25', '2020-12-26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -90,9 +138,9 @@ CREATE TABLE `exercices` (
 --
 
 INSERT INTO `exercices` (`id`, `name`, `file_name`, `Description`, `Cours_id`, `Matiere_id`, `Classe_id`, `Teacher_id`, `deadline`, `created_at`, `updated_at`) VALUES
-(1, 'HW04', 'HW045fe33c079dc53.pdf', 'Exercice 4', 1, 1, 1, 1, '2020-12-23', '2020-12-23 11:45:59', '2020-12-23 11:45:59'),
-(2, 'HW05', 'HW055fe33c4ccbe83.pdf', 'Exercice 5', 1, 1, 1, 1, '2021-01-01', '2020-12-23 11:47:08', '2020-12-23 11:47:08'),
-(4, 'hw07', 'hw075fe5c69615d70.pdf', 'exercice 7', 1, 1, 1, 1, '2021-01-08', '2020-12-25 10:01:42', '2020-12-25 10:01:42');
+(1, 'HW04', 'HW045fe790f35d4d1.pdf', 'Exercice 4', 1, 1, 1, 1, '2021-01-09', '2020-12-26 18:37:23', '2020-12-26 18:37:23'),
+(2, 'HW05', 'HW055fe79178057e2.pdf', 'exercice 05', 1, 1, 1, 1, '2020-12-29', '2020-12-26 18:39:36', '2020-12-26 18:39:36'),
+(3, 'HW-Algebre', 'HW-Algebre5fe79ab0b0aaf.pdf', 'Algebre', 2, 2, 1, 1, '2020-12-27', '2020-12-26 19:18:56', '2020-12-26 19:18:56');
 
 -- --------------------------------------------------------
 
@@ -115,8 +163,7 @@ CREATE TABLE `exercice_remis` (
 --
 
 INSERT INTO `exercice_remis` (`id`, `Exercice_id`, `Student_id`, `file_name`, `Remis`, `created_at`, `updated_at`) VALUES
-(5, 1, 1, 'HW045fe49ee3a95f7.pdf', '1', '2020-12-24 13:00:03', '2020-12-24 13:00:03'),
-(6, 1, 1, 'HW045fe49ef30df2c.pdf', '1', '2020-12-24 13:00:19', '2020-12-24 13:00:19');
+(1, 1, 1, 'HW045fe7918a89bfe.pdf', '1', '2020-12-26 18:39:54', '2020-12-26 18:39:54');
 
 -- --------------------------------------------------------
 
@@ -133,6 +180,31 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fiche_presences`
+--
+
+CREATE TABLE `fiche_presences` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `Teacher_id` int(11) NOT NULL,
+  `Classe_id` int(11) NOT NULL,
+  `Matiere_id` int(11) NOT NULL,
+  `Jour` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `fiche_presences`
+--
+
+INSERT INTO `fiche_presences` (`id`, `Teacher_id`, `Classe_id`, `Matiere_id`, `Jour`, `created_at`, `updated_at`) VALUES
+(37, 1, 1, 1, '2020-12-26', '2020-12-26 18:55:14', '2020-12-26 18:55:14'),
+(38, 1, 1, 1, '2020-12-27', '2020-12-26 19:12:28', '2020-12-26 19:12:28'),
+(39, 1, 1, 2, '2020-12-27', '2020-12-26 19:17:32', '2020-12-26 19:17:32');
 
 -- --------------------------------------------------------
 
@@ -154,7 +226,8 @@ CREATE TABLE `matieres` (
 --
 
 INSERT INTO `matieres` (`id`, `name`, `Teacher_id`, `Classe_id`, `created_at`, `updated_at`) VALUES
-(1, 'Analyse', 1, 1, NULL, NULL);
+(1, 'Analyse', 1, 1, NULL, NULL),
+(2, 'Algebre', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,7 +237,7 @@ INSERT INTO `matieres` (`id`, `name`, `Teacher_id`, `Classe_id`, `created_at`, `
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -173,20 +246,25 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(204, '2014_10_12_000000_create_users_table', 1),
-(205, '2014_10_12_100000_create_password_resets_table', 1),
-(206, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
-(207, '2019_08_19_000000_create_failed_jobs_table', 1),
-(208, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(209, '2020_11_14_160417_create_sessions_table', 1),
-(210, '2020_11_14_165553_create_classes_table', 1),
-(211, '2020_11_14_165711_create_cours_table', 1),
-(212, '2020_11_14_165730_create_exercices_table', 1),
-(213, '2020_11_14_165756_create_matieres_table', 1),
-(214, '2020_11_14_165814_create_students_table', 1),
-(215, '2020_11_14_165830_create_teachers_table', 1),
-(216, '2020_11_14_165855_create_notes_table', 1),
-(217, '2020_12_22_193551_create_exercice_remis_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
+(4, '2019_08_19_000000_create_failed_jobs_table', 1),
+(5, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(6, '2020_11_14_160417_create_sessions_table', 1),
+(7, '2020_11_14_165553_create_classes_table', 1),
+(8, '2020_11_14_165711_create_cours_table', 1),
+(9, '2020_11_14_165730_create_exercices_table', 1),
+(10, '2020_11_14_165756_create_matieres_table', 1),
+(11, '2020_11_14_165814_create_students_table', 1),
+(12, '2020_11_14_165830_create_teachers_table', 1),
+(13, '2020_11_14_165855_create_notes_table', 1),
+(14, '2020_12_22_193551_create_exercice_remis_table', 1),
+(15, '2020_12_26_103447_create_fiche_presences_table', 1),
+(16, '2020_12_26_130249_create_student_statuses_table', 2),
+(17, '2020_12_27_081945_create_bookings_table', 3),
+(18, '2020_12_27_084014_create_events_table', 4),
+(19, '2020_12_27_103823_create_events_table', 5);
 
 -- --------------------------------------------------------
 
@@ -204,14 +282,6 @@ CREATE TABLE `notes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `notes`
---
-
-INSERT INTO `notes` (`id`, `Matiere_id`, `Student_id`, `Type`, `remarque`, `valeur`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 'Exam', 'goood', 19.50, '2020-12-25 10:06:28', '2020-12-25 10:06:28'),
-(2, 1, 1, 'Exam', '5rit fih', 19.50, '2020-12-25 10:13:00', '2020-12-25 10:13:00');
 
 -- --------------------------------------------------------
 
@@ -263,8 +333,13 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('CkGqmNcbb3hh0DayhKhKgs7RsmDhRawAP4KlnE41', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiaUF5aFMyZjBPdkZSN0txRWhLck54NDQyU0E5ZWxpSHY0ZzNITVlQeSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9Ob3RlcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRvaWNHblpmTVRCalgxYXRzVXNJSTUublZybXRGV2JFaW9ZREt5amRZUmRsWlhHN01Wai9zYSI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkb2ljR25aZk1UQmpYMWF0c1VzSUk1Lm5Wcm10RldiRWlvWURLeWpkWVJkbFpYRzdNVmovc2EiO30=', 1608894781),
-('ocrWDvSjb6F2zfGTwCLX8hN1xKcLYPNv3Q3CUx3Q', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiS0gyMGNsOWpGR1FYQTk5czkwUE5OOVVTR2U0MWtiUlB5aWFhSzRRYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9Ob3RlcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1608910959);
+('1JChMmlBlHnt8Rp0HMpEZw9uBAyFW0vGytsPKkeA', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMTdPN3d4RDFLbFZ0RVFsUUQxMEtCWGZXZTZvdmw1aGRrbTVlSlpDZSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mdWxsY2FsZW5kYXJldmVudG1hc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1609192592),
+('BQ8bKGMwFSGVIwgTP2YYaVTVaEqrkvLZfIZKfj4u', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiWEt3UjBJWGtqaEZ0Y2hNaWk4RkFTdUtybWxjbmZFZm1abmJDVGJwUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaW1wbGUtcXItY29kZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR3UHVzenNxOXZZZFM1QXNFdzE0Ly4uWDdlOFh1UlBOYkFUdmNGUXJ3aUJQM1Frcktvenk0VyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkd1B1c3pzcTl2WWRTNUFzRXcxNC8uLlg3ZThYdVJQTmJBVHZjRlFyd2lCUDNRa3JLb3p5NFciO30=', 1609194910),
+('futtFkCav4JvYyHrApKDN4fWfu2aRPS0XNndRP9s', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiTmZSa1U3d1E1WmZLWmFXOUdOU2ZxSEsyZDExQmlUdlRtREFNaE5vcCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1609192594),
+('Gdr07p48h1nuWq3quih6ceT9AEOvxTqOUluaB5BT', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiazluVjd6Q3d3NDVReGI4SThOdktQaU42MmtCb2duZ2tHNjlUblRhbCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1609192570),
+('k64l0hnKFRHCmm6VHudbZwcAMcdVnFQDRd75iUbI', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicW5VY1FvTzQzZkFpZldFT3kyWlBuQVBIdGF4QTZ2V1ZudHFES3ppOCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaW1wbGUtcXItY29kZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR3UHVzenNxOXZZZFM1QXNFdzE0Ly4uWDdlOFh1UlBOYkFUdmNGUXJ3aUJQM1Frcktvenk0VyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkd1B1c3pzcTl2WWRTNUFzRXcxNC8uLlg3ZThYdVJQTmJBVHZjRlFyd2lCUDNRa3JLb3p5NFciO30=', 1609183804),
+('OXRhUiieJqQs6sW7MdHuPwQS2JfMX0jfLUMS5VUx', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidUtNM1V4UUt2aHluNTREMFg4cnp0TmhHNGpRQ01QRFhJTXkxMmpjYiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkd1B1c3pzcTl2WWRTNUFzRXcxNC8uLlg3ZThYdVJQTmJBVHZjRlFyd2lCUDNRa3JLb3p5NFciO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHdQdXN6c3E5dllkUzVBc0V3MTQvLi5YN2U4WHVSUE5iQVR2Y0ZRcndpQlAzUWtyS296eTRXIjt9', 1609096417),
+('vImiM8b6p6lADlTtYwi3ChYQ49apdm9MAEpOXESs', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiSFJPV1VJTmZIRHZyU09oaXZIZUJmcW1MTEpDQmVuRFRxQ21CMjZiRiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mdWxsY2FsZW5kYXJldmVudG1hc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCR3UHVzenNxOXZZZFM1QXNFdzE0Ly4uWDdlOFh1UlBOYkFUdmNGUXJ3aUJQM1Frcktvenk0VyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkd1B1c3pzcTl2WWRTNUFzRXcxNC8uLlg3ZThYdVJQTmJBVHZjRlFyd2lCUDNRa3JLb3p5NFciO30=', 1609151227);
 
 -- --------------------------------------------------------
 
@@ -287,7 +362,24 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `User_id`, `Teacher_id`, `Classe_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 'Amine ', NULL, NULL);
+(1, 1, 1, 1, 'Amine', NULL, NULL),
+(2, 2, 1, 1, 'Adnen', NULL, NULL),
+(3, 3, 2, 2, 'Aziz', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `student_statuses`
+--
+
+CREATE TABLE `student_statuses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `Students_id` int(11) NOT NULL,
+  `FichePresence_id` int(11) NOT NULL,
+  `Student_Status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -310,7 +402,8 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `User_id`, `Classe_id`, `Matiere_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 'Azer', NULL, NULL);
+(1, 1, 1, 1, 'Analyse', NULL, NULL),
+(2, 2, 1, 2, 'Anis', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -338,11 +431,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'AZER LARIBI', 'azer2017laribi@gmail.com', NULL, '$2y$10$oicGnZfMTBjX1atsUsII5.nVrmtFWbEioYDKyjdYRdlZXG7MVj/sa', NULL, NULL, NULL, NULL, NULL, '2020-12-23 11:42:16', '2020-12-23 11:42:16');
+(1, 'AZER LARIBI', 'azer2017laribi@gmail.com', NULL, '$2y$10$wPuszsq9vYdS5AsEw14/..X7e8XuRPNbATvcFQrwiBP3QkrKozy4W', NULL, NULL, NULL, NULL, NULL, '2020-12-26 18:34:37', '2020-12-26 18:34:37');
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `classes`
@@ -354,6 +453,12 @@ ALTER TABLE `classes`
 -- Index pour la table `cours`
 --
 ALTER TABLE `cours`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `events`
+--
+ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -374,6 +479,12 @@ ALTER TABLE `exercice_remis`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Index pour la table `fiche_presences`
+--
+ALTER TABLE `fiche_presences`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `matieres`
@@ -422,6 +533,12 @@ ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `student_statuses`
+--
+ALTER TABLE `student_statuses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `teachers`
 --
 ALTER TABLE `teachers`
@@ -439,6 +556,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `classes`
 --
 ALTER TABLE `classes`
@@ -448,19 +571,25 @@ ALTER TABLE `classes`
 -- AUTO_INCREMENT pour la table `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `exercices`
 --
 ALTER TABLE `exercices`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `exercice_remis`
 --
 ALTER TABLE `exercice_remis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `failed_jobs`
@@ -469,22 +598,28 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `fiche_presences`
+--
+ALTER TABLE `fiche_presences`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
 -- AUTO_INCREMENT pour la table `matieres`
 --
 ALTER TABLE `matieres`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT pour la table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -496,13 +631,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT pour la table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `student_statuses`
+--
+ALTER TABLE `student_statuses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`

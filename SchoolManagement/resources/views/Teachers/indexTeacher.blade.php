@@ -49,6 +49,8 @@
 </div>
 
 
+
+
 <div class="modal fade" id="ExercicesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -135,7 +137,7 @@
 
 
     <div class="card-header ">
-      <h1 class="card-category">Teachers : {{Auth::user()->name}}</h1>
+      <h1 class="card-category">Teachers : {{Auth::user()->name}} <a class="btn btn-outline-success float-right" href="./simple-qr-code" style="text-align:center;" role="button" target="_blank"><i class="fas fa-qrcode"></i> Mon QR-Code</a> <a class="btn btn-outline-primary float-right" href="/fullcalendareventmaster" role="button" target="_blank"><i class="fas fa-calendar-alt"></i> Evenement</a></h1>
     </div>
     <div class="row">
       <div class="col-md-4 col-lg-4">
